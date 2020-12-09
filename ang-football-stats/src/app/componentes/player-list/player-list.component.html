@@ -1,0 +1,77 @@
+<main role="main" class="container">
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-4">
+                <h1><b>{{team.name}}</b></h1>
+                <br /><br />
+                <h3>
+                    Fundado en:
+                    <small class="text-muted">{{team.founded}}</small>
+                </h3>
+
+
+                <h3>
+                    Estadio:
+                    <small class="text-muted">{{team.venue}}</small>
+                </h3>
+                <h3>
+                    Web:
+                    <small class="text-muted">
+                        <td> <a target="_blank" href="{{team.website}}">{{team.website}}</a></td>
+                    </small>
+                </h3>
+            </div>
+            <div class="col-md-4  col-md-offset-4"> <img style="float:right; width: 200px;"
+                    src="{{team.crestUrl}}" alt="Chania">
+            </div>
+        </div>
+
+
+    </div>
+</main>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card bg-light my-5">
+                <div class="card-body">
+                    <div class="panel panel-primary">
+
+                        <div class="panel-heading">
+                            <h2>Lista de jugadores </h2>
+                        </div>
+                        <br /><br />
+
+                        <div class="panel-body">
+                            <p><input matInput (keyup)="applyFilter($event.target.value)"
+                                    placeholder="Filtrar por Nombre"></p>
+
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Posición</th>
+                                        <th scope="col">País Nacimiento</th>
+                                        <th scope="col">Nacionalidad</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <ng-container *ngFor="let player of players ">
+
+                                        <tr>
+                                            <td>{{player.name}}</td>
+                                            <td>{{player.position}}</td>
+                                            <td>{{player.countryOfBirth}}</td>
+                                            <td>{{player.nationality}}</td>
+                                        </tr>
+                                    </ng-container>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

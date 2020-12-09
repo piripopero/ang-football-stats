@@ -1,0 +1,54 @@
+
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/0.8.2/css/flag-icon.min.css" rel="stylesheet"/>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+   <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card bg-light my-5">
+              <div class="card-body">
+                <div class="panel panel-primary">
+                  <div class="panel-heading">
+                    <h2>Lista de competiciones</h2>
+                  </div>
+                  <br/><br/>
+
+                  <div class="panel-body">
+                       <p><input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtrar por Nombre o País"></p> 
+                      
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">País</th>
+                            <th scope="col">Nombre</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <ng-container *ngFor="let competition of competitions ">
+
+                          <tr>
+                            <td>{{competition.area.name}}</td>
+                            <td>{{competition.name}}</td>
+
+
+                            <td>
+                                <button  (click)="showTeams(competition.id)"  class="btn btn-success"
+                                style="margin-left: 3px"><i class="fa fa-bars" aria-hidden="true"></i>
+                                </button>
+        
+                            </td>
+                            
+                          </tr>
+                        </ng-container>
+
+                        </tbody>
+                      </table>
+                     
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>
